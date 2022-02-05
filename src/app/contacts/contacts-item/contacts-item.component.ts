@@ -8,7 +8,7 @@ import { Contact } from 'src/app/type';
 export class ContactsItemComponent  {
 
   @Input()
-  info!: Partial<Contact>;
+  info: Partial<Contact>;
 
 }
 

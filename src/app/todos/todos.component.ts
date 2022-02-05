@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodosService } from '../todos.service';
-import { Todos } from '../type';
+import { Todo } from '../type';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
@@ -8,9 +8,10 @@ import { Todos } from '../type';
 })
 export class TodosComponent {
 
-  constructor(private todo: TodosService) { }
+  infoTodo: Partial<Todo>[] = this.todosService.getAll()
 
-  infoTodo:Todos[] = this.todo.all
+  constructor(private todosService: TodosService) { }
+
   
 
 }

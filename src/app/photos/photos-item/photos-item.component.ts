@@ -8,5 +8,6 @@ import { Photo } from 'src/app/type';
 })
 export class PhotosItemComponent  {
 
-  @Input() info!:Photo
+  @Input() 
+  info!: Partial<Photo>
 }

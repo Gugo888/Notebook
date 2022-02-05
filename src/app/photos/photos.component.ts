@@ -8,7 +8,8 @@ import { Photo } from '../type';
 })
 export class PhotosComponent  {
 
-  constructor(private photo: PhotosService) { }
+  fotoInfo: Partial<Photo>[] = this.photosService.getAll();
 
-  fotoInfo:Photo[] = this.photo.all
+  constructor(private photosService: PhotosService) { }
+
 }

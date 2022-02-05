@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Todos } from 'src/app/type';
+import { Todo } from 'src/app/type';
 
 @Component({
   selector: 'app-todos-item',
@@ -8,6 +8,7 @@ import { Todos } from 'src/app/type';
 })
 export class TodosItemComponent {
 
-  @Input() info!:Todos
+  @Input() 
+  info!: Partial<Todo>
 
 }
