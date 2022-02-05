@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContactsService } from '../contacts.service'
+import { Contact } from '../type';
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
@@ -7,9 +8,7 @@ import { ContactsService } from '../contacts.service'
 })
 export class ContactsComponent  {
 
-  constructor(private contacts: ContactsService) { }
+  infoContacts: Partial<Contact>[] = this.contactsService.getAll();
 
-  infoContacts = this.contacts.all;
-
-
+  constructor(private contactsService: ContactsService) {}
 }

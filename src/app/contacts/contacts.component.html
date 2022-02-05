@@ -1,2 +1,6 @@
+<h1>{{infoContacts.length}} Contacts</h1>
+<div class="contact-item-container" *ngFor="let item of infoContacts; index as i">
+    <span>{{i + 1}}</span>
+    <app-contacts-item [info]="item"></app-contacts-item>
+</div >
 
-<h1 *ngFor="let item of infoContacts">{{item.firstName}} {{item.lastName}} {{item.number}}</h1>
