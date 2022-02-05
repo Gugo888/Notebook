@@ -15,7 +15,11 @@ export class ContactDetailComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute, private contactsService: ContactsService) { }
 
   ngOnInit(): void {
+
+    // vercnumenq es pahi route-i :id parametry
     const id = this.activeRoute.snapshot.paramMap.get('id');
+
+    // vercratz id-ov stanumenq contact-y u veragrum mer contactDetails popoxakanin
     this.contactDetails = this.contactsService.getById(id);
   }
 
