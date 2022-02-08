@@ -50,5 +50,9 @@ export class ContactsService {
     return this.items.find(contact => contact.id === id);
   }
 
-
+  getNewUser(newUser: Contact) {
+    const nextId = this.items[this.items.length - 1].id + 1;
+    newUser.id = nextId.toString();
+    this.items.push(newUser);
+  }
 }

@@ -15,6 +15,8 @@ import { TodosDetailComponent } from './todos/todos-detail/todos-detail.componen
 import { PhotosDetailComponent } from './photos/photos-detail/photos-detail.component';
 import { NoutFoundComponent } from './nout-found/nout-found.component';
 import { NoDataComponent } from './no-data/no-data.component';
+import { ContactAddComponent } from './contacts/contact-add/contact-add.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,11 +32,13 @@ import { NoDataComponent } from './no-data/no-data.component';
     TodosDetailComponent,
     PhotosDetailComponent,
     NoutFoundComponent,
-    NoDataComponent
+    NoDataComponent,
+    ContactAddComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

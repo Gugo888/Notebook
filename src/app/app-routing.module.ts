@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactAddComponent } from './contacts/contact-add/contact-add.component';
 import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { NoDataComponent } from './no-data/no-data.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
 
   { path: '', redirectTo: 'contacts', pathMatch: 'full' },
   { path: 'contacts', component: ContactsComponent },
+  { path: 'newcontact', component: ContactAddComponent},
   { path: 'contacts/:id', component: ContactDetailComponent },
   { path: 'notedata', component: NoDataComponent},
   { path: 'photos', component: PhotosComponent },
