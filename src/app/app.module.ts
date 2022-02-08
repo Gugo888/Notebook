@@ -11,6 +11,10 @@ import { ContactsItemComponent } from './contacts/contacts-item/contacts-item.co
 import { PhotosItemComponent } from './photos/photos-item/photos-item.component';
 import { TodosItemComponent } from './todos/todos-item/todos-item.component';
 import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
+import { TodosDetailComponent } from './todos/todos-detail/todos-detail.component';
+import { PhotosDetailComponent } from './photos/photos-detail/photos-detail.component';
+import { NoutFoundComponent } from './nout-found/nout-found.component';
+import { NoDataComponent } from './no-data/no-data.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { ContactDetailComponent } from './contacts/contact-detail/contact-detail
     ContactsItemComponent,
     PhotosItemComponent,
     TodosItemComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    TodosDetailComponent,
+    PhotosDetailComponent,
+    NoutFoundComponent,
+    NoDataComponent
   ],
   imports: [
     BrowserModule,
