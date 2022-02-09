@@ -1,5 +1,16 @@
-<h1>ID - {{contactDetails.id}}</h1>
+<!-- <h1>ID - {{contactDetails.id}}</h1>
 
 <h1>{{contactDetails.firstName}}</h1>
 <h1>{{contactDetails.lastName}}</h1>
-<h1>{{contactDetails.number}}</h1>
+<h1>{{contactDetails.number}}</h1> -->
+<div>
+    <input [(ngModel)]="contactDetails.firstName">
+</div>
+<div>
+    <input [(ngModel)]="contactDetails.lastName">
+</div>
+<div>
+    <input [(ngModel)]="contactDetails.number">
+</div>
+<button (click)="save()">Save</button>
+<button routerLink="/contacts">Cancel</button>

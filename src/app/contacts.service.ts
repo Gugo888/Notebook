@@ -50,9 +50,14 @@ export class ContactsService {
     return this.items.find(contact => contact.id === id);
   }
 
-  getNewUser(newUser: Contact) {
+  add(newContact: Contact) {
     const nextId = this.items[this.items.length - 1].id + 1;
-    newUser.id = nextId.toString();
-    this.items.push(newUser);
+    newContact.id = nextId.toString();
+    this.items.push(newContact);
+  }
+
+  update(contact: Contact) {
+    let index = this.items.findIndex(item => item.id == contact.id);
+    this.items[index] = contact;
   }
 }

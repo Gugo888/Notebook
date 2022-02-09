@@ -11,21 +11,25 @@ import { Contact } from 'src/app/type';
 export class ContactDetailComponent implements OnInit {
 
   contactDetails: Contact;
-
   constructor(private activeRoute: ActivatedRoute, private contactsService: ContactsService, private routes: Router) { }
-
+  
   ngOnInit(): void {
-
     // vercnumenq es pahi route-i :id parametry
     const id = this.activeRoute.snapshot.paramMap.get('id');
     const contact = this.contactsService.getById(id);
+    
     if (contact) {
        // vercratz id-ov stanumenq contact-y u veragrum mer contactDetails popoxakanin
-       this.contactDetails = contact;
+       this.contactDetails = {...contact}
+
     } else {
       this.routes.navigate(['notedata']);
     }
-
   }
-
+  
+  save() {
+    this.contactsService.update(this.contactDetails);
+    this.routes.navigate(['/contacts']);
+  }
+  
 }

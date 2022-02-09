@@ -19,7 +19,7 @@ export class ContactAddComponent {
   }
 
   save() {
-    this.contactsService.getNewUser(this.newContact);
+    this.contactsService.add(this.newContact);
     this.routes.navigate(['contacts'])
   }  
 
