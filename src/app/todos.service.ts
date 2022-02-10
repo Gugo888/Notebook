@@ -49,4 +49,15 @@ export class TodosService {
   getById(id: string): Todo | undefined {
     return this.items.find(todo => todo.id === id);
   }
+
+  add(newTodo:Todo) {
+    let index = this.items[this.items.length - 1].id + 1;
+    newTodo.id = index;
+    this.items.push(newTodo);
+  }
+
+  update(result:Todo) {
+    let index = this.items.findIndex(item => item.id == result.id);
+    this.items[index] = result;
+  }
 }

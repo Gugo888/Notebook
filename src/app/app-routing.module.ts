@@ -9,7 +9,7 @@ import { PhotosDetailComponent } from './photos/photos-detail/photos-detail.comp
 import { PhotosComponent } from './photos/photos.component';
 import { TodosDetailComponent } from './todos/todos-detail/todos-detail.component';
 import { TodosComponent } from './todos/todos.component';
-
+import { TodosAddComponent } from './todos/todos-add/todos-add.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'contacts', pathMatch: 'full' },
@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'photos', component: PhotosComponent },
   { path: 'photos/:id', component: PhotosDetailComponent},
   { path: 'todos', component: TodosComponent },
+  { path: 'newtodo', component: TodosAddComponent},
   { path: 'todos/:id', component: TodosDetailComponent},
   { path: '**', component: NoutFoundComponent}
 

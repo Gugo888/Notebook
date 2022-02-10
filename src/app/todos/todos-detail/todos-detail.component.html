@@ -1,6 +1,18 @@
-<div>
+<!-- <div>
     <h1>ID - {{todosDetails.id}}</h1>
     <h1>{{todosDetails.name}}</h1>
     <h1>{{todosDetails.deadline}}</h1>
     <h1>Priority - {{todosDetails.priority}}</h1>
+</div> -->
+
+<div>
+    <input [formControl]="name">
 </div>
+<div>
+    <input [formControl]="deadline">
+</div>
+<div>
+    <input [formControl]="priority">
+</div>
+<button [disabled]="name.invalid || deadline.invalid || priority.invalid" (click)="save()">Save</button>
+<button routerLink="/todos">Cancel</button>
