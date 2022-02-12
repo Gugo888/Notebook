@@ -18,7 +18,7 @@ import { NoDataComponent } from './no-data/no-data.component';
 import { ContactAddComponent } from './contacts/contact-add/contact-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TodosAddComponent } from './todos/todos-add/todos-add.component';
-
+import { HttpClientModule }   from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +41,8 @@ import { TodosAddComponent } from './todos/todos-add/todos-add.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

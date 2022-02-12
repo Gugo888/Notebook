@@ -17,7 +17,7 @@ export class ContactAddComponent {
     number:'',
     id: null
   }
-
+  
   save() {
     this.contactsService.add(this.newContact);
     this.routes.navigate(['contacts'])

@@ -1,20 +1,37 @@
 <div>
     <input [formControl]="name">
+    <span class="error" [hidden]="name.valid || name.pristine">please complete the line
+    </span>
 </div>
+
 <div>
     <input [formControl]="deadline">
+    <!-- <button (click)="f()">juj</button> -->
+    <span class="error" [hidden]="deadline.valid || deadline.pristine">please complete the line</span>
 </div>
+
 <div>
     <input [formControl]="priority">
+    <button (click)="set(1)">1</button>
+    <button (click)="set(2)">2</button>
+    <button (click)="set(3)">3</button>
+    <button (click)="set(4)">4</button>
+    <button (click)="set(5)">5</button>
+    <button (click)="f()">Log Priority Control</button>
+    <div class="error" *ngIf="(priority.invalid && priority.dirty)">
+        <span *ngIf="priority.getError('required')">giv a number 1-5</span>
+        <span *ngIf="priority.errors['min']">
+            {{priority.errors['min'].actual}} is less than {{priority.errors['min'].min}}</span>
+        <span *ngIf="priority.errors['max']">
+            {{priority.errors['max'].actual}} is greater than {{priority.errors['max'].max}}</span>
+    </div>
 </div>
-<button (click)="save()">Save</button>
+
+<button [disabled]="name.invalid || deadline.invalid || priority.invalid" (click)="save()">Save</button>
 
 
 
 
-<!-- export type Todo = {
-    id: string,
-    name: string,
-    deadline: string,
-    priority: number,
-} -->
+
+
+
