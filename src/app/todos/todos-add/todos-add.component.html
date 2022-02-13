@@ -1,33 +1,34 @@
-<div>
-    <input [formControl]="name">
-    <span class="error" [hidden]="name.valid || name.pristine">please complete the line
-    </span>
-</div>
-
-<div>
-    <input [formControl]="deadline">
-    <!-- <button (click)="f()">juj</button> -->
-    <span class="error" [hidden]="deadline.valid || deadline.pristine">please complete the line</span>
-</div>
-
-<div>
-    <input [formControl]="priority">
-    <button (click)="set(1)">1</button>
-    <button (click)="set(2)">2</button>
-    <button (click)="set(3)">3</button>
-    <button (click)="set(4)">4</button>
-    <button (click)="set(5)">5</button>
-    <button (click)="f()">Log Priority Control</button>
-    <div class="error" *ngIf="(priority.invalid && priority.dirty)">
-        <span *ngIf="priority.getError('required')">giv a number 1-5</span>
-        <span *ngIf="priority.errors['min']">
-            {{priority.errors['min'].actual}} is less than {{priority.errors['min'].min}}</span>
-        <span *ngIf="priority.errors['max']">
-            {{priority.errors['max'].actual}} is greater than {{priority.errors['max'].max}}</span>
+<form [formGroup]="todoList">
+    <div>
+        <input formControlName="name">
+        <span class="error" [hidden]="todoList.get('name').valid || todoList.get('name').pristine">
+            please complete the line</span>
     </div>
-</div>
-
-<button [disabled]="name.invalid || deadline.invalid || priority.invalid" (click)="save()">Save</button>
+    <div>
+        <input formControlName="deadline">
+        <span class="error" [hidden]="todoList.get('deadline').valid || todoList.get('deadline').pristine">
+            please complete the line</span>
+    </div>
+    <div>
+        <input formControlName="priority">
+        <button (click)="setValue(1)">1</button>
+        <button (click)="setValue(2)">2</button>
+        <button (click)="setValue(3)">3</button>
+        <button (click)="setValue(4)">4</button>
+        <button (click)="setValue(5)">5</button>
+        <div class="error" *ngIf="todoList.get('priority').invalid && todoList.get('priority').dirty">
+            <span *ngIf="todoList.get('priority').hasError('required')">giv a number 1-5</span>
+            <span *ngIf="todoList.get('priority').getError('min')">
+                {{todoList.get('priority').getError('min').actual}} it's small</span>
+            <span *ngIf="todoList.get('priority').errors['max']">
+                {{todoList.get('priority').errors['max'].actual}} it's big</span>
+        </div>
+    </div>
+    <button (click)="f()">marktoched</button>
+    <button (click)="f1()">pristine</button>
+    <button [disabled]="todoList.get('name').invalid || todoList.get('deadline').invalid || todoList.get('priority').invalid" 
+    (click)="save()">Save</button>
+</form>
 
 
 

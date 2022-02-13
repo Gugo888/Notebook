@@ -43,9 +43,3 @@ export class TodosDetailComponent implements OnInit {
   }
 
 }
-// export type Todo = {
-//   id: string,
-//   name: string,
-//   deadline: string,
-//   priority: number,
-// }
