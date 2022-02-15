@@ -1,12 +1,12 @@
 <form [formGroup]="todoList">
     <div>
         <input formControlName="name">
-        <span class="error" [hidden]="todoList.get('name').valid || todoList.get('name').pristine">
+        <span class="error" *ngIf="name.invalid && name.touched">
             please complete the line</span>
     </div>
     <div>
         <input formControlName="deadline">
-        <span class="error" [hidden]="todoList.get('deadline').valid || todoList.get('deadline').pristine">
+        <span class="error" *ngIf="deadline.invalid && deadline.touched">
             please complete the line</span>
     </div>
     <div>
@@ -16,16 +16,15 @@
         <button (click)="setValue(3)">3</button>
         <button (click)="setValue(4)">4</button>
         <button (click)="setValue(5)">5</button>
-        <div class="error" *ngIf="todoList.get('priority').invalid && todoList.get('priority').dirty">
-            <span *ngIf="todoList.get('priority').hasError('required')">giv a number 1-5</span>
-            <span *ngIf="todoList.get('priority').getError('min')">
-                {{todoList.get('priority').getError('min').actual}} it's small</span>
-            <span *ngIf="todoList.get('priority').errors['max']">
-                {{todoList.get('priority').errors['max'].actual}} it's big</span>
+        <div class="error" *ngIf="priority.invalid && priority.touched">
+            <span *ngIf="priority.hasError('required')">giv a number 1-5</span>
+            <span *ngIf="priority.hasError('min')">
+                {{priority.getError('min').actual}} it's small</span>
+            <span *ngIf="priority.hasError('max')">
+                {{priority.getError('max').actual}} it's big</span>
         </div>
     </div>
-    <button (click)="f()">marktoched</button>
-    <button (click)="f1()">pristine</button>
+    <button (click)="todoUnTouch()">clear</button>
     <button [disabled]="todoList.get('name').invalid || todoList.get('deadline').invalid || todoList.get('priority').invalid" 
     (click)="save()">Save</button>
 </form>

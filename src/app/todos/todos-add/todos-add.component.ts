@@ -14,17 +14,35 @@ export class TodosAddComponent {
   todoList = new FormGroup({
     name: new FormControl('', [Validators.required]),
     deadline: new FormControl('', [Validators.required]),
-    priority: new FormControl('', [Validators.required, Validators.min(1), Validators.max(6)]),
+    priority: new FormControl('', [Validators.required, Validators.min(1), Validators.max(5)]),
   })
 
 
 
   constructor(private todoService: TodosService, private routes: Router, private http: HttpClient) { }
+  get name() {
+    return this.todoList.get('name')
+  }
+  get deadline() {
+    return this.todoList.get('deadline')
+  }
+  get priority() {
+    return this.todoList.get('priority')
+  }
+  todoUnTouch() {
+    // for(let key of Object.keys(this.todoList.controls)) {
+    //   this.todoList.get(key).markAsUntouched();
+    // }
+    for(let key of Object.values(this.todoList.controls)) {
+      key.markAsUntouched();
+    }
+  }
+  
   save() {
     let result: Todo = {
-      name: this.todoList.get('name').value,
-      deadline: this.todoList.get('deadline').value,
-      priority: this.todoList.get('priority').value,
+      name: this.name.value,
+      deadline: this.deadline.value,
+      priority: this.priority.value,
       id: null
     }
     this.todoService.add(result);
@@ -34,15 +52,12 @@ export class TodosAddComponent {
     this.todoList.get('priority').setValue(value);
   }
 
-  f() {
-    
-    console.log(`name - ${this.todoList.get('name').markAsPristine()}`);
-    // console.log(this.todoList.get('priority'));
-  }
-  
+
+ 
+
   f1() {
-    console.log(`name pristine- ${this.todoList.get('name').pristine}`);
-    console.log(`name dirty- ${this.todoList.get('name').dirty}`);
+    console.log(`name pristine- ${this.name.untouched}`);
+    // console.log(`name dirty- ${this.todoList.get('name').dirty}`);
     // console.log(`deadline -${this.todoList.get('deadline').touched}`)
   }
 
