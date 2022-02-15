@@ -13,6 +13,24 @@ export class TodosService {
     return {name: 'Name', priority: 1, deadline: 'Deadline', id}
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
   add(newTodo:Todo) {
     
   }

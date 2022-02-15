@@ -15,6 +15,20 @@ export class ContactsService {
     return {firstName: 'First name', lastName: 'Last name', number: '11111111', id}
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
   add(newContact:Contact) {
     
   }

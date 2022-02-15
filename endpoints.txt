@@ -1,0 +1,6 @@
+GET - http://localhost:3000/contacts
+GET - http://localhost:3000/contacts/:id
+GET - http://localhost:3000/photos
+GET - http://localhost:3000/photos/:id
+GET - http://localhost:3000/todos
+GET - http://localhost:3000/todos/:id
