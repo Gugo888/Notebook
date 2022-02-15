@@ -25,13 +25,5 @@
         </div>
     </div>
     <button (click)="todoUnTouch()">clear</button>
-    <button [disabled]="todoList.get('name').invalid || todoList.get('deadline').invalid || todoList.get('priority').invalid" 
-    (click)="save()">Save</button>
+    <button [disabled]="name.invalid || deadline.invalid || priority.invalid" (click)="save()">Save</button>
 </form>
-
-
-
-
-
-
-

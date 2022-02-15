@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { TodosService } from 'src/app/todos.service';
 import { Todo } from 'src/app/type';
@@ -30,11 +30,8 @@ export class TodosAddComponent {
     return this.todoList.get('priority')
   }
   todoUnTouch() {
-    // for(let key of Object.keys(this.todoList.controls)) {
-    //   this.todoList.get(key).markAsUntouched();
-    // }
-    for(let key of Object.values(this.todoList.controls)) {
-      key.markAsUntouched();
+    for(let control of Object.values(this.todoList.controls)) {
+      control.markAsUntouched();
     }
   }
   
@@ -45,58 +42,12 @@ export class TodosAddComponent {
       priority: this.priority.value,
       id: null
     }
+
     this.todoService.add(result);
     this.routes.navigate(['/todos'])
   }
-  setValue(value) {
+  setValue(value: number) {
     this.todoList.get('priority').setValue(value);
   }
 
-
- 
-
-  f1() {
-    console.log(`name pristine- ${this.name.untouched}`);
-    // console.log(`name dirty- ${this.todoList.get('name').dirty}`);
-    // console.log(`deadline -${this.todoList.get('deadline').touched}`)
-  }
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-// name = new FormControl('', [Validators.required]);
-// deadline = new FormControl('', [Validators.required]);
-// priority = new FormControl('', [Validators.required, Validators.min(1), Validators.max(7)]);
-
-// save(): void {
-
-//   let result: Todo = {
-//     name: this.name.value,
-//     deadline: this.deadline.value,
-//     priority: this.priority.value,
-//     id: null
-//   }
-// this.todoService.add(result);
-// this.routes.navigateByUrl("/todos");
-// }
-// set(asd): void {
-//   this.priority.setValue(asd)
-// }
-// f(): void {
-//   console.log(this.priority.value)
-  // console.log(typeof(this.priority.value))
-  // console.log(`valid  ${this.deadline.valid}`);
-  // console.log(`pristine  ${this.deadline.pristine}`);
-
-// }
