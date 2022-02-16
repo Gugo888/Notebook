@@ -6,10 +6,13 @@ import { Photo } from '../type';
   templateUrl: './photos.component.html',
   styleUrls: ['./photos.component.scss']
 })
-export class PhotosComponent  {
+export class PhotosComponent implements OnInit {
 
-  fotoInfo: Partial<Photo>[] = this.photosService.getAll();
+  fotoInfo: Partial<Photo>[];
 
-  constructor(private photosService: PhotosService) { }
+  constructor(private photosService: PhotosService) {}
 
+  ngOnInit(): void {
+      this.photosService.getAll().subscribe(photo => this.fotoInfo = photo)
+  }
 }

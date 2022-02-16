@@ -1,8 +1,34 @@
-<!-- <h1>ID - {{contactDetails.id}}</h1>
+<div *ngIf="contactDetails">
+<form *ngIf="contactDetails" [formGroup]="contactDetails">
+    <div>
+        <input formControlName="firstName">
+        <span class="error" *ngIf="firstName.invalid && firstName.touched">
+            please complete the line</span>
+    </div>
+    <div>
+        <input formControlName="lastName">
+        <span class="error" *ngIf="lastName.invalid && lastName.touched">
+            please complete the line</span>
+    </div>
+    <div>
+        <input formControlName="number">
+        <span class="error" *ngIf="number.invalid && number.touched">please complete the line</span>
+    </div>
+    <button routerLink="/contacts">Cancel</button>
+    <button [disabled]="firstName.invalid || lastName.invalid || number.invalid" (click)="save()">Save</button>
+</form>
+</div>
 
-<h1>{{contactDetails.firstName}}</h1>
-<h1>{{contactDetails.lastName}}</h1>
-<h1>{{contactDetails.number}}</h1> -->
+
+
+
+
+
+
+
+
+
+<!-- 
 <div>
     <input [(ngModel)]="contactDetails.firstName">
 </div>
@@ -13,4 +39,4 @@
     <input [(ngModel)]="contactDetails.number">
 </div>
 <button (click)="save()">Save</button>
-<button routerLink="/contacts">Cancel</button>
+<button routerLink="/contacts">Cancel</button> -->

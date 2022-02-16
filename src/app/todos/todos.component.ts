@@ -6,12 +6,13 @@ import { Todo } from '../type';
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss']
 })
-export class TodosComponent {
+export class TodosComponent implements OnInit{
 
-  infoTodo: Partial<Todo>[] = this.todosService.getAll()
-
+  infoTodo: Partial<Todo>[];
+ 
   constructor(private todosService: TodosService) { }
-
-  
-
+  ngOnInit(): void {
+     this.todosService.getAll().subscribe(todos => this.infoTodo = todos);
+  }
 }
+

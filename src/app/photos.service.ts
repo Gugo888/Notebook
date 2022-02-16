@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Photo } from './type';
+import { HttpClient } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 export class PhotosService {
 
-  
+  constructor(private http:  HttpClient) {}
 
-  getAll(): Partial<Photo>[] {
-    return []
+  getAll() {
+    return this.http.get<Photo[]>('http://localhost:3000/photos')
   }
 
-  getById(id: string): Photo | undefined {
-    return {name: 'Name', url: 'URL', size: 100, id}
+  getById(id: string) {
+    return this.http.get<Photo>(`http://localhost:3000/photos/${id}`)
   }
 
   add(newPhoto:Photo) {

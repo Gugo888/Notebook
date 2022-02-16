@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodosService } from 'src/app/todos.service';
 import { Todo } from 'src/app/type';
 import { Router } from '@angular/router';
@@ -10,16 +10,17 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './todos-add.component.html',
   styleUrls: ['./todos-add.component.scss']
 })
-export class TodosAddComponent {
+export class TodosAddComponent implements OnInit{
   todoList = new FormGroup({
     name: new FormControl('', [Validators.required]),
     deadline: new FormControl('', [Validators.required]),
     priority: new FormControl('', [Validators.required, Validators.min(1), Validators.max(5)]),
   })
 
-
-
   constructor(private todoService: TodosService, private routes: Router, private http: HttpClient) { }
+  ngOnInit(): void {
+      
+  }
   get name() {
     return this.todoList.get('name')
   }

@@ -2,5 +2,81 @@ GET - http://localhost:3000/contacts
 GET - http://localhost:3000/contacts/:id
 GET - http://localhost:3000/photos
 GET - http://localhost:3000/photos/:id
+
+
+
+
 GET - http://localhost:3000/todos
+
+uxarkumes: N/A
+
+stanumes [
+    {
+         id: string
+        name: string
+        deadline: string
+        priority: number
+    },
+    {
+         id: string
+        name: string
+        deadline: string
+        priority: number
+    }
+]
+
+
+
+
+POST - http://localhost:3000/todos
+
+uxarkumes {
+    name: string
+    deadline: string
+    priority: number
+}
+
+stanumes {
+    id: string
+    name: string
+    deadline: string
+    priority: number
+}
+
+
+
+
+
 GET - http://localhost:3000/todos/:id
+
+uxarkumes: N/A
+
+stanumes {
+    id: string
+    name: string
+    deadline: string
+    priority: number
+}
+
+DELETE - http://localhost:3000/todos/:id
+
+uxarkumes: N/A
+
+stanumes: true
+
+
+
+PUT - http://localhost:3000/todos/:id
+
+uxarkumes {
+    name: string
+    deadline: string
+    priority: number
+}
+
+stanumes {
+    id: string
+    name: string
+    deadline: string
+    priority: number
+}

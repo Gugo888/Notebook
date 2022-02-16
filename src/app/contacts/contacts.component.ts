@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../contacts.service'
 import { Contact } from '../type';
 @Component({
@@ -6,9 +6,13 @@ import { Contact } from '../type';
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
-export class ContactsComponent  {
+export class ContactsComponent implements OnInit {
 
-  infoContacts: Partial<Contact>[] = this.contactsService.getAll();
+  infoContacts: Partial<Contact>[];
 
   constructor(private contactsService: ContactsService) {}
+
+  ngOnInit(): void {
+      this.contactsService.getAll().subscribe(contacts => this.infoContacts = contacts)
+  }
 }

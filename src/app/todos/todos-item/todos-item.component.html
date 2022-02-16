@@ -1,3 +1,5 @@
 <div [routerLink]="info.id" class="container">
     <h1>{{info.name}} priority{{info.priority}}</h1>
 </div>
+<button (click)="deleted(info.id)">Delete</button>
+<button (click)="all()">all</button>

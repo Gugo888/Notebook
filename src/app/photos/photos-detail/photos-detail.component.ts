@@ -15,12 +15,13 @@ export class PhotosDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.avtiveRoute.snapshot.paramMap.get('id');
-    const photo = this.photosService.getById(id);
-    if (photo) {
-      this.photosDetail = photo;
-    } else {
-      this.route.navigate(['notedata'])
-    }
+    this.photosService.getById(id).subscribe(photo => {
+      if(photo) {
+        this.photosDetail = photo
+      } else {
+        this.route.navigate(['notedata'])
+      }
+    })
 
   }
 

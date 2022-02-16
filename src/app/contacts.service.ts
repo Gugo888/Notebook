@@ -1,18 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Contact } from './type';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class ContactsService {
 
-  
+  constructor(private http: HttpClient) { }
 
-  getAll(): Partial<Contact>[] {
-    return []
+
+
+  getAll() {
+    return this.http.get<Contact[]>('http://localhost:3000/contacts')
   }
 
-  getById(id: string): Contact | undefined {
-    return {firstName: 'First name', lastName: 'Last name', number: '11111111', id}
+
+
+  getById(id: string){
+    return this.http.get<Contact>(`http://localhost:3000/contacts/${id}`)
   }
 
 
@@ -27,13 +32,13 @@ export class ContactsService {
 
 
 
-  
 
-  add(newContact:Contact) {
-    
+
+  add(newContact: Contact) {
+
   }
 
-  update(result:Contact) {
-    
+  update(result: Contact) {
+
   }
 }
