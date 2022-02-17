@@ -1,4 +1,4 @@
-<h1>{{infoContacts.length}} Contacts</h1>
+<h1>{{infoContacts?.length}} Contacts</h1>
 <button routerLink="/newcontact">Add Contact</button>
 <div class="contact-item-container" *ngFor="let item of infoContacts; index as i">
     <app-contacts-item [info]="item"></app-contacts-item>

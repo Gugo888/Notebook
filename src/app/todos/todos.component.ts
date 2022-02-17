@@ -12,7 +12,15 @@ export class TodosComponent implements OnInit{
  
   constructor(private todosService: TodosService) { }
   ngOnInit(): void {
-     this.todosService.getAll().subscribe(todos => this.infoTodo = todos);
+     this.todosService.getAll().subscribe(todos => {
+       this.infoTodo = todos
+      });
   }
+
+  onchange(id:string): void {
+    let index = this.infoTodo.findIndex(todo => todo.id === id);
+    this.infoTodo.splice(index,1)
+  }
+  
 }
 

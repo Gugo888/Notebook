@@ -1,4 +1,5 @@
 <button routerLink="/newtodo">Add New Todo</button>
-<app-todos-item *ngFor="let item of infoTodo" [info]="item"></app-todos-item>
+<app-todos-item *ngFor="let item of infoTodo" [info]="item" (elementId)="onchange($event)"></app-todos-item>
+
 
 

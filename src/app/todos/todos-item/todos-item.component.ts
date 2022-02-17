@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from 'src/app/type';
 import { TodosService } from 'src/app/todos.service';
 
@@ -9,16 +9,16 @@ import { TodosService } from 'src/app/todos.service';
 })
 export class TodosItemComponent {
 constructor(private todoService: TodosService) {}
- deleted(q:string){
-  this.todoService.delete(q);
-  setTimeout(() => this.todoService.getAll(),1000)
+getInfoId(id:string){
+  this.todoService.delete(id).subscribe((): void => {
+    this.elementId.emit(id)
+  })
+ 
  }
- all()  {
-   let all = this.todoService.all()
-   console.log(all);
-   
- }
+
   @Input() 
   info!: Partial<Todo>
 
+  @Output()
+  elementId = new EventEmitter()
 }

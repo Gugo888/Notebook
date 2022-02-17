@@ -26,6 +26,6 @@ export class TodosService {
     return this.http.put(`http://localhost:3000/todos/${id}`, result).subscribe(todo => console.log(todo))
   }
   delete(id:string) {
-    return this.http.delete(`http://localhost:3000/todos/${id}`).subscribe(todo => console.log(todo))
+    return this.http.delete(`http://localhost:3000/todos/${id}`)
   }
 }
