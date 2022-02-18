@@ -24,7 +24,7 @@ export class TodosDetailComponent implements OnInit {
   constructor(private todosService: TodosService, private activeRoute: ActivatedRoute, private route: Router) { }
   id:string
   ngOnInit(): void {
-     this.id = this.activeRoute.snapshot.paramMap.get('id');
+    this.id = this.activeRoute.snapshot.paramMap.get('id');
     // 2
 
     this.todosService.getById(this.id).subscribe((todo) => {

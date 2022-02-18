@@ -1,5 +1,9 @@
 <h1>{{infoContacts?.length}} Contacts</h1>
+<input placeholder="search" [formControl]="search">
+
 <button routerLink="/newcontact">Add Contact</button>
-<div class="contact-item-container" *ngFor="let item of infoContacts; index as i">
+<div class="contact-item-container" *ngFor="let item of infoContacts | filterContact: search.value; index as i">
     <app-contacts-item [info]="item"></app-contacts-item>
 </div >
+
+

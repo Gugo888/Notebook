@@ -32,8 +32,6 @@ export class ContactsService {
 
 
 
-
-
   add(newContact: Contact) {
 
   }

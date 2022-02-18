@@ -19,6 +19,9 @@ import { ContactAddComponent } from './contacts/contact-add/contact-add.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TodosAddComponent } from './todos/todos-add/todos-add.component';
 import { HttpClientModule }   from '@angular/common/http';
+import { FilterContactPipe } from './filter-contact.pipe';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,8 @@ import { HttpClientModule }   from '@angular/common/http';
     NoutFoundComponent,
     NoDataComponent,
     ContactAddComponent,
-    TodosAddComponent
+    TodosAddComponent,
+    FilterContactPipe,
   ],
   imports: [
     BrowserModule,

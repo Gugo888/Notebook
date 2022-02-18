@@ -5,10 +5,9 @@ import { Todo } from './type';
   providedIn: 'root'
 })
 export class TodosService {
+
   constructor(private http:HttpClient) {}
-  all() {
-    return this.http.get<Todo[]>('http://localhost:3000/todos').subscribe(elem => console.log(elem))
-  }
+  
   getAll() {
     return this.http.get<Todo[]>('http://localhost:3000/todos')
   }

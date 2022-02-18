@@ -19,8 +19,16 @@ export class TodosAddComponent implements OnInit{
 
   constructor(private todoService: TodosService, private routes: Router, private http: HttpClient) { }
   ngOnInit(): void {
+
+
+
+
+
       
   }
+
+
+
   get name() {
     return this.todoList.get('name')
   }

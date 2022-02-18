@@ -1,16 +1,16 @@
 <form [formGroup]="todoList">
     <div>
-        <input formControlName="name">
+        <input placeholder="Name" formControlName="name">
         <span class="error" *ngIf="name.invalid && name.touched">
             please complete the line</span>
     </div>
     <div>
-        <input formControlName="deadline">
+        <input placeholder="Deadline" formControlName="deadline">
         <span class="error" *ngIf="deadline.invalid && deadline.touched">
             please complete the line</span>
     </div>
     <div>
-        <input formControlName="priority">
+        <input placeholder="Priority" formControlName="priority">
         <button (click)="setValue(1)">1</button>
         <button (click)="setValue(2)">2</button>
         <button (click)="setValue(3)">3</button>
@@ -24,6 +24,6 @@
                 {{priority.getError('max').actual}} it's big</span>
         </div>
     </div>
-    <button (click)="todoUnTouch()">clear</button>
+    <button (click)="todoUnTouch()">Untouch</button>
     <button [disabled]="name.invalid || deadline.invalid || priority.invalid" (click)="save()">Saved</button>
 </form>

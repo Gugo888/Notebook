@@ -9,6 +9,5 @@ export class ContactsItemComponent  {
 
   @Input()
   info: Partial<Contact>;
-
 }
 
